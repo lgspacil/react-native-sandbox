@@ -3,9 +3,8 @@
 import React from 'react';
 import { View, Text, Button } from 'react-native';
 import { StackNavigator } from 'react-navigation';
-import Feed from './components/navigation/Feed';
 import HomeScreen from './components/HomeScreen';
-import MapScreen from './App';
+import MapScreen from './MapScreen';
 
 
 const RootStack = StackNavigator(
@@ -19,7 +18,17 @@ const RootStack = StackNavigator(
     },
     {
       initialRouteName: 'Home',
-    }
+      navigationOptions: {
+        headerStyle: {
+          backgroundColor: 'green',
+        },
+        headerTintColor: '#fff',
+        headerTitleStyle: {
+          fontWeight: 'bold',
+        },
+      }
+    },
+    
   );
   
   export default class App extends React.Component {

@@ -8,6 +8,20 @@ import FetchLocation from './components/FetchLocation';
 
 
 export default class App extends React.Component {
+  // this is how you set the header bar to a parameter
+  static navigationOptions = ({ navigation, navigationOptions }) => {
+    const { params } = navigation.state;
+
+    return {
+      title: params ? params.otherParam : 'A Nested Details Screen',
+      /* These values are used instead of the shared configuration! */
+      headerStyle: {
+        backgroundColor: navigationOptions.headerTintColor,
+      },
+      headerTintColor: navigationOptions.headerStyle.backgroundColor,
+    };
+  };
+
   state = {
     userLocation: null,
     usersPlaces: []
@@ -59,9 +73,14 @@ export default class App extends React.Component {
   }
 
   render() {
+    const { params } = this.props.navigation.state;
     return (
       <View style={styles.container}>
          <Text>Hey LUCAS SPACIL</Text>
+         <Button
+    title="Update the title"
+    onPress={() => this.props.navigation.setParams({otherParam: 'Lucas is worked!'})}
+  />
          <View style={{marginBottom: 20}}>
          <Button title="Get User Places" onPress={this.getUserPLacesHandler}/>
          </View>
