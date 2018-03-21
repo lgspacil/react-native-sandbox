@@ -2,25 +2,25 @@ import React from 'react';
 import { StyleSheet, Text, View, Button } from 'react-native';
 import { StackNavigator } from 'react-navigation';
 
-import UsersMap from './components/UsersMap';
-import FetchLocation from './components/FetchLocation';
+import UsersMap from './UsersMap';
+import FetchLocation from './FetchLocation';
 
 
 
-export default class App extends React.Component {
+export default class MapScreen extends React.Component {
   // this is how you set the header bar to a parameter
-  static navigationOptions = ({ navigation, navigationOptions }) => {
-    const { params } = navigation.state;
+  // static navigationOptions = ({ navigation, navigationOptions }) => {
+  //   const { params } = navigation.state;
 
-    return {
-      title: params ? params.otherParam : 'A Nested Details Screen',
-      /* These values are used instead of the shared configuration! */
-      headerStyle: {
-        backgroundColor: navigationOptions.headerTintColor,
-      },
-      headerTintColor: navigationOptions.headerStyle.backgroundColor,
-    };
-  };
+  //   return {
+  //     title: params ? params.otherParam : 'A Nested Details Screen',
+  //     /* These values are used instead of the shared configuration! */
+  //     headerStyle: {
+  //       backgroundColor: navigationOptions.headerStyle.backgroundColor,
+  //     },
+  //     headerTintColor: navigationOptions.headerTintColor,
+  //   };
+  // };
 
   state = {
     userLocation: null,
@@ -78,9 +78,9 @@ export default class App extends React.Component {
       <View style={styles.container}>
          <Text>Hey LUCAS SPACIL</Text>
          <Button
-    title="Update the title"
-    onPress={() => this.props.navigation.setParams({otherParam: 'Lucas is worked!'})}
-  />
+            title="Update the title"
+            onPress={() => this.props.navigation.setParams({otherParam: 'Lucas is worked!'})}
+          />
          <View style={{marginBottom: 20}}>
          <Button title="Get User Places" onPress={this.getUserPLacesHandler}/>
          </View>

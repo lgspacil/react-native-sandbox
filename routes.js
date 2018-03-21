@@ -2,9 +2,12 @@
 
 import React from 'react';
 import { View, Text, Button } from 'react-native';
-import { StackNavigator } from 'react-navigation';
+import { StackNavigator, TabNavigator } from 'react-navigation';
 import HomeScreen from './components/HomeScreen';
-import MapScreen from './MapScreen';
+import MapScreen from './components/MapScreen';
+import Tab1 from './components/tabs/tab1';
+import Tab2 from './components/tabs/tab2';
+
 
 
 const RootStack = StackNavigator(
@@ -20,19 +23,18 @@ const RootStack = StackNavigator(
       initialRouteName: 'Home',
       navigationOptions: {
         headerStyle: {
-          backgroundColor: 'green',
+          backgroundColor: '#4d4c50',
         },
-        headerTintColor: '#fff',
+        headerTintColor: 'white',
         headerTitleStyle: {
           fontWeight: 'bold',
         },
       }
     },
-    
   );
   
-  export default class App extends React.Component {
+  export default class routes extends React.Component {
     render() {
-      return <RootStack />;
+      return <RootStack />
     }
   }
